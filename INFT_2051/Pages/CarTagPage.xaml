@@ -1,12 +1,46 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:INFT_2051.Models"
              x:Class="INFT_2051.Pages.CarTagPage"
              Title="CarTagPage">
     <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+        <Label
+            Grid.Column="1"
+            Grid.Row="1"
+            VerticalOptions="Center"
+            Text="Car Make:"
+            FontAttributes="Bold"/>
+        <Picker
+            x:Name="CharacterClassPicker"
+            Grid.Column="2"
+            Grid.Row="1"
+            ItemsSource="{x:Static models:MakeDetails.Makes}"/>
+
+        <Label
+         Grid.Column="1"
+         Grid.Row="1"
+         VerticalOptions="Center"
+         Text="Location:"
+         FontAttributes="Bold"/>
+        
+        <Entry x:Name="LocationEntry" Placeholder="Enter location"
+               HorizontalOptions="FillAndExpand" />
+
+     
+        <Picker x:Name="AlbumPicker" Title="Select Album">
+            <Picker.ItemsSource>
+           
+                <x:Array Type="{x:Type x:String}">
+                    <x:String>Exotics</x:String>
+                    <x:String>Classics</x:String>
+                </x:Array>
+            </Picker.ItemsSource>
+        </Picker>
+
+      
+        <Button Text="Add Photo" 
+                HorizontalOptions="Center"
+                Clicked="CollectionButton_Clicked" />
     </VerticalStackLayout>
 </ContentPage>

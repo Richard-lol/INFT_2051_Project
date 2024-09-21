@@ -4,9 +4,7 @@
              x:Class="INFT_2051.Pages.CollectionPage"
              Title="CollectionPage">
     <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+       
+        
     </VerticalStackLayout>
 </ContentPage>

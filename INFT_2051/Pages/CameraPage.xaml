@@ -20,7 +20,7 @@
             Spacing="20">
 
             <Image x:Name="PhotoCapture"
-                   WidthRequest="300"
+                   WidthRequest="350"
                    HeightRequest="200"
                    BackgroundColor="LightGray"
                    Aspect="AspectFit"
@@ -29,6 +29,10 @@
 
             <Button Text="Take a Photo"
                     Clicked="PhotoButtonClicked"
+                    HorizontalOptions="Center"/>
+            
+            <Button Text="Upload a Photo"
+                    Clicked="UploadButtonClicked"
                     HorizontalOptions="Center"/>
 
 

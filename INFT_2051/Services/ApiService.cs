@@ -5,7 +5,7 @@ namespace INFT_2051.Services
     {
         //Maintain one instance of a HttpClient to use for all requests
         private static HttpClient _client;
-        private static string _baseUrl = "https://www.dnd5eapi.co/api/";
+        private static string _baseUrl = "https://public.opendatasoft.com/api/explore/v2.1/catalog/datasets/all-vehicles-model/records?select=";
 
         //A static constructor runs once the first time the static class is referenced
         //We use this to create a new client and set the base url

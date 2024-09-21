@@ -17,7 +17,10 @@ public partial class MainPage : ContentPage
             );
         }
 
-       
+        MakeDetails.LoadCarMakes();
+
+
+
     }
 
     private void CameraButton_Clicked(object sender, EventArgs e)

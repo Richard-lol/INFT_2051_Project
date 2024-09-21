@@ -18,31 +18,32 @@ public partial class CameraPage : ContentPage
     }
     private async void PhotoButtonClicked(object sender, EventArgs e)
     {
-        try
+        
+        if (MediaPicker.Default.IsCaptureSupported)
         {
-            // Check if the device supports taking photos
-            if (MediaPicker.Default.IsCaptureSupported)
-            {
-                // Capture a photo using the camera
-                FileResult photo = await MediaPicker.Default.CapturePhotoAsync();
+          
+            FileResult photo = await MediaPicker.Default.CapturePhotoAsync();
 
-                if (photo != null)
-                {
-                    // Save the captured photo to a temporary file
-                    var stream = await photo.OpenReadAsync();
-                    PhotoCapture.Source = ImageSource.FromStream(() => stream);
-                }
-            }
-            else
+            if (photo != null)
             {
-                await DisplayAlert("Camera Unavailable", "The device does not support taking photos.", "OK");
+    
+                var stream = await photo.OpenReadAsync();
+                PhotoCapture.Source = ImageSource.FromStream(() => stream);
             }
-        }
-        catch (Exception ex)
+        }    
+
+    }
+    private async void UploadButtonClicked(object sender, EventArgs e)
+    {
+        FileResult photo = await MediaPicker.Default.PickPhotoAsync();
+
+        if (photo != null)
         {
-            // Handle any errors that might occur
-            await DisplayAlert("Error", ex.Message, "OK");
+            
+            var stream = await photo.OpenReadAsync();
+            PhotoCapture.Source = ImageSource.FromStream(() => stream);
         }
+        
     }
 
 }
