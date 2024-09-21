@@ -19,8 +19,11 @@ namespace INFT_2051.Services
 
         public static async Task<string> GetJsonFromAPI(string url)
         {
+            string fullUrl = _baseUrl + url;
+            System.Diagnostics.Debug.WriteLine("Full URL: " + fullUrl);
             //A HttpResponseMessage is a container containing all the response data
-            HttpResponseMessage response = await _client.GetAsync(url);
+            HttpResponseMessage response = await _client.GetAsync(fullUrl);
+          
             //This just checks if the response code is in the 200 range, indicating it was successful
             if (response.IsSuccessStatusCode)
             {

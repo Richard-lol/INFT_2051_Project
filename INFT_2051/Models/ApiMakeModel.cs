@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace INFT_2051.Models
 {
-    class ApiMakeModel
+    internal class ApiMakeModel
     {
         public string Make { get; set; }
     }

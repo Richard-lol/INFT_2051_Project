@@ -28,8 +28,13 @@ namespace INFT_2051.Models
         {
             string json = await ApiService.GetJsonFromAPI("make&limit=100");
             var response = JsonConvert.DeserializeObject<ApiMakeResponse>(json);
-            string[] makeNames = new string[response.Total_count];
-            for (int i = 0; i < response.Total_count; i++)
+            if (response.Total_count <= 0)
+            {
+                Console.WriteLine("No car makes found.");
+                return;
+            }
+            string[] makeNames = new string[100];
+            for (int i = 0; i < 100; i++)
             {
                 makeNames[i] = response.Results[i].Make;
             }

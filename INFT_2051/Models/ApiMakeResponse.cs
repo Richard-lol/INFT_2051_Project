@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace INFT_2051.Models
 {
-    class ApiMakeResponse
+    internal class ApiMakeResponse
     {
         public int Total_count { get; set; }
         public ApiMakeModel[] Results { get; set; }
