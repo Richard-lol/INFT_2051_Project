@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="INFT_2051.Pages.LoginPage"
+             Title="LoginPage">
+    <ScrollView>
+        <FlexLayout
+            Direction="Column"
+            JustifyContent="SpaceEvenly"
+            AlignItems="Center">
+
+            <Image
+                Source="dragon.png"
+                WidthRequest="200"/>
+
+            <Label
+                Text="Login"
+                Style="{StaticResource HomeLabel}"/>
+
+            <VerticalStackLayout>
+
+                <Grid
+                    Margin="30"
+                    ColumnDefinitions="Auto, *"
+                    RowDefinitions="Auto, Auto, Auto"
+                    ColumnSpacing="10"
+                    RowSpacing="5">
+
+                    <Label
+                        Text="Email: "
+                        VerticalTextAlignment="Center"
+                        Grid.Column="0"
+                        Grid.Row="0"
+                        Style="{StaticResource FormLabel}"/>
+
+                    <Entry
+                        x:Name="EmailEntry"
+                        Grid.Column="1"
+                        Grid.Row="0"
+                        Placeholder="Email"
+                        HorizontalOptions="Fill"/>
+
+                    <Label
+                        Text="Password: "
+                        VerticalTextAlignment="Center"
+                        Grid.Column="0"
+                        Grid.Row="1"
+                        Style="{StaticResource FormLabel}"/>
+
+                    <Entry
+                        x:Name="PasswordEntry"
+                        IsPassword="True"
+                        Grid.Column="1"
+                        Grid.Row="1"
+                        Placeholder="Password"/>
+
+                    <HorizontalStackLayout
+                        Grid.Column="0"
+                        Grid.Row="2"
+                        Grid.ColumnSpan="2">
+                        <Label
+                            Text="Remember Me: "
+                            VerticalTextAlignment="Center"
+                            Style="{StaticResource FormLabel}"/>
+
+                        <CheckBox
+                            x:Name="RememberMeCheckbox"/>
+                    </HorizontalStackLayout>
+
+                </Grid>
+
+                <Button
+                    x:Name="LoginButton"
+                    Text="Login"
+                    HorizontalOptions="Center"
+                    Clicked="LoginButton_Clicked"/>
+            </VerticalStackLayout>
+        </FlexLayout>
+    </ScrollView>
+</ContentPage>

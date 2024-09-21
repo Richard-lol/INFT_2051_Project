@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<FlyoutPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            x:Class="INFT_2051.SettingsFlyoutPage"
+            Title="Settings"
+            FlyoutLayoutBehavior="Default">
+
+    <!-- Define the Flyout Menu -->
+    <FlyoutPage.Flyout>
+        <ContentPage Title="Menu">
+            <StackLayout Padding="10">
+                <Label Text="Menu Options" FontSize="Title" />
+                <Button Text="Settings" Clicked="OnSettingsClicked"/>
+                <Button Text="Profile" Clicked="OnProfileClicked"/>
+            </StackLayout>
+        </ContentPage>
+    </FlyoutPage.Flyout>
+
+    <!-- Define the Main Content Page -->
+    <FlyoutPage.Detail>
+        <NavigationPage>
+            <x:Arguments>
+                <ContentPage Title="Settings">
+                    <StackLayout>
+                        <Label Text="This is the detail page" FontSize="Large"/>
+                    </StackLayout>
+                </ContentPage>
+            </x:Arguments>
+        </NavigationPage>
+    </FlyoutPage.Detail>
+
+</FlyoutPage>
