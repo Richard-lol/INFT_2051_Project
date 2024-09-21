@@ -3,9 +3,33 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="INFT_2051.Pages.CameraPage"
              Title="CameraPage">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem
+            
+        Text="Next"
+        Clicked="CarTagPage_Clicked"
+
+        />
+
+    </ContentPage.ToolbarItems>
+    
     <ScrollView>
         <VerticalStackLayout
-            Margin="20">
+            Margin="20"
+            Spacing="20">
+
+            <Image x:Name="PhotoCapture"
+                   WidthRequest="300"
+                   HeightRequest="200"
+                   BackgroundColor="LightGray"
+                   Aspect="AspectFit"
+                   HorizontalOptions="Center"/>
+
+
+            <Button Text="Take a Photo"
+                    Clicked="PhotoButtonClicked"
+                    HorizontalOptions="Center"/>
 
 
         </VerticalStackLayout>

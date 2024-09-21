@@ -5,27 +5,27 @@ using SQLiteNetExtensions.Extensions;
 
 namespace INFT_2051.ViewModels
 {
-    internal class CharacterViewModel : ObservableObject
+    internal class CarViewModel : ObservableObject
     {
-        public static CharacterViewModel Current { get; set; }
+        public static CarViewModel Current { get; set; }
 
         SQLiteConnection connection;
 
-        public CharacterViewModel()
+        public CarViewModel()
         {
             Current = this;
             
         }
 
-        public List<CharacterModel> Characters
+        public List<CarModel> Cars
         {
             get
             {
-                return connection.GetAllWithChildren<CharacterModel>();
+                return connection.GetAllWithChildren<CarModel>();
             }
         }
 
-        public void SaveCharacter(CharacterModel model)
+        public void SaveCar(CarModel model)
         {
             //If it has an Id, then it already exists and we can update it
             if (model.Id > 0)
@@ -41,7 +41,7 @@ namespace INFT_2051.ViewModels
            
         }
 
-        public void DeleteCharacter(CharacterModel model)
+        public void DeleteCar(CarModel model)
         {
             //If it has an Id, then we can delete it
             if (model.Id > 0)

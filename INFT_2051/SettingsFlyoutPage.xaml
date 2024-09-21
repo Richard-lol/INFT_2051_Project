@@ -5,24 +5,21 @@
             Title="Settings"
             FlyoutLayoutBehavior="Default">
 
-    <!-- Define the Flyout Menu -->
     <FlyoutPage.Flyout>
         <ContentPage Title="Menu">
             <StackLayout Padding="10">
-                <Label Text="Menu Options" FontSize="Title" />
-                <Button Text="Settings" Clicked="OnSettingsClicked"/>
-                <Button Text="Profile" Clicked="OnProfileClicked"/>
+
             </StackLayout>
         </ContentPage>
     </FlyoutPage.Flyout>
 
-    <!-- Define the Main Content Page -->
     <FlyoutPage.Detail>
         <NavigationPage>
             <x:Arguments>
                 <ContentPage Title="Settings">
                     <StackLayout>
-                        <Label Text="This is the detail page" FontSize="Large"/>
+                        <Button Text="My Account" Clicked="OnSettingsClicked"/>
+                        <Button Text="Permissions" Clicked="OnProfileClicked"/>
                     </StackLayout>
                 </ContentPage>
             </x:Arguments>

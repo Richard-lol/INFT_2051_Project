@@ -31,10 +31,10 @@
                 WidthRequest="300"/>
 
             <Button
-                x:Name="CharacterButton"
+                x:Name="CameraButton"
                 Text="Take a Photo"
                 HorizontalOptions="Center"
-                Clicked="CharacterButton_Clicked"/>
+                Clicked="CameraButton_Clicked"/>
             <Button
                 x:Name="CollectionButton"
                 Text="View Collection"
