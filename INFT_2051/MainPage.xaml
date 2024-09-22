@@ -42,7 +42,7 @@
                 Clicked="CollectionButton_Clicked"/>
             <Button
                 x:Name="GarageButton"
-                Text="View Collection"
+                Text="View Garage"
                 HorizontalOptions="Center"
                 Clicked="GarageButton_Clicked"/>
 
