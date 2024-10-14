@@ -3,34 +3,40 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:models="clr-namespace:INFT_2051.Models"
              x:Class="INFT_2051.Pages.CarTagPage"
-             Title="CarTagPage">
+             Title="Tag Your Photo">
     <VerticalStackLayout>
         <Label
             Grid.Column="1"
             Grid.Row="1"
             VerticalOptions="Center"
             Text="Car Make:"
-            FontAttributes="Bold"/>
+            FontAttributes="Bold"
+            Margin="20,10,0,0"/>
         <Picker
             x:Name="CharacterClassPicker"
             Grid.Column="2"
             Grid.Row="1"
-            ItemsSource="{x:Static models:MakeDetails.Makes}"/>
+            SelectedItem="{Binding Make}"
+            ItemsSource="{x:Static models:MakeDetails.Makes}"
+            Margin="20,10,20,10"/>
 
         <Label
          Grid.Column="1"
          Grid.Row="1"
          VerticalOptions="Center"
          Text="Location:"
-         FontAttributes="Bold"/>
-        
-        <Entry x:Name="LocationEntry" Placeholder="Enter location"
-               HorizontalOptions="FillAndExpand" />
+         FontAttributes="Bold"
+         Margin="20,10,20,0"/>
 
-     
-        <Picker x:Name="AlbumPicker" Title="Select Album">
+        <Entry x:Name="LocationEntry" 
+               Placeholder="Enter location"
+               Text="{Binding Location}"
+               HorizontalOptions="FillAndExpand" 
+               Margin="20,10,20,10"/>
+
+
+        <Picker x:Name="AlbumPicker" Title="Select Album" SelectedItem="{Binding Album}" Margin="20,10,20,10">
             <Picker.ItemsSource>
-           
                 <x:Array Type="{x:Type x:String}">
                     <x:String>Exotics</x:String>
                     <x:String>Classics</x:String>
@@ -38,7 +44,7 @@
             </Picker.ItemsSource>
         </Picker>
 
-      
+
         <Button Text="Add Photo" 
                 HorizontalOptions="Center"
                 Clicked="CollectionButton_Clicked" />

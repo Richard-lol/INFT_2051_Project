@@ -5,11 +5,11 @@ namespace INFT_2051.Pages;
 
 public partial class CameraPage : ContentPage
 {
-  
+    CarViewModel viewModel;
 
     public CameraPage()
 	{
-    
+        BindingContext = viewModel = new CarViewModel();
         InitializeComponent();
 	}
     private void CarTagPage_Clicked(object sender, EventArgs e)

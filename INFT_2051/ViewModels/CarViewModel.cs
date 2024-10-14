@@ -14,7 +14,7 @@ namespace INFT_2051.ViewModels
         public CarViewModel()
         {
             Current = this;
-            
+            connection = DatabaseService.Connection;
         }
 
         public List<CarModel> Cars
@@ -23,10 +23,17 @@ namespace INFT_2051.ViewModels
             {
                 return connection.GetAllWithChildren<CarModel>();
             }
+
+
         }
 
         public void SaveCar(CarModel model)
         {
+            if (connection == null)
+            {
+                throw new NullReferenceException("Database connection is not initialized.");
+            }
+
             //If it has an Id, then it already exists and we can update it
             if (model.Id > 0)
             {
@@ -49,5 +56,6 @@ namespace INFT_2051.ViewModels
                 connection.Delete(model);
             }
         }
+        
     }
 }

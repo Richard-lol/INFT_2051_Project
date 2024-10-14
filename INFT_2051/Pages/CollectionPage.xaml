@@ -2,9 +2,26 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="INFT_2051.Pages.CollectionPage"
-             Title="CollectionPage">
+             Title="Car Collection">
+
     <VerticalStackLayout>
-       
-        
+        <Label Text="Car Collection"
+               FontSize="Large"
+               HorizontalOptions="Center"
+               Margin="10" />
+
+        <!-- CollectionView to display the list of saved cars -->
+        <CollectionView x:Name="CarsListView"
+                        ItemsSource="{Binding Cars}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout Padding="10">
+                        <Label Text="{Binding Make}" FontAttributes="Bold" />
+                        <Label Text="{Binding Location}" />
+                        <Label Text="{Binding AlbumName}" />
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
     </VerticalStackLayout>
 </ContentPage>
