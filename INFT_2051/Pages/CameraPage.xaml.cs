@@ -6,15 +6,17 @@ namespace INFT_2051.Pages;
 public partial class CameraPage : ContentPage
 {
     CarViewModel viewModel;
+    private CarModel carModel;
 
     public CameraPage()
 	{
-        BindingContext = viewModel = new CarViewModel();
+        carModel = new CarModel();
         InitializeComponent();
 	}
     private void CarTagPage_Clicked(object sender, EventArgs e)
     {
-        Navigation.PushAsync(new CarTagPage());
+        //Navigation.PushAsync(new CarTagPage());
+        Navigation.PushAsync(new CarTagPage(carModel));
     }
     private async void PhotoButtonClicked(object sender, EventArgs e)
     {
@@ -29,6 +31,7 @@ public partial class CameraPage : ContentPage
     
                 var stream = await photo.OpenReadAsync();
                 PhotoCapture.Source = ImageSource.FromStream(() => stream);
+                carModel.ImageFilePath = photo.FullPath;
             }
         }    
 
@@ -42,6 +45,7 @@ public partial class CameraPage : ContentPage
             
             var stream = await photo.OpenReadAsync();
             PhotoCapture.Source = ImageSource.FromStream(() => stream);
+            carModel.ImageFilePath = photo.FullPath;
         }
         
     }

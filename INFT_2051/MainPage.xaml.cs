@@ -18,6 +18,7 @@ public partial class MainPage : ContentPage
         }
 
         MakeDetails.LoadCarMakes();
+        //NameDetails.LoadCarNames("");
 
 
 
@@ -25,7 +26,9 @@ public partial class MainPage : ContentPage
 
     private void CameraButton_Clicked(object sender, EventArgs e)
     {
+
         Navigation.PushAsync(new CameraPage());
+       
     }
     private void CollectionButton_Clicked(object sender, EventArgs e)
     {
@@ -33,7 +36,9 @@ public partial class MainPage : ContentPage
     }
     private void GarageButton_Clicked(object sender, EventArgs e)
     {
+
         Navigation.PushAsync(new GaragePage());
+
     }
     private void Settings_Clicked(object sender, EventArgs e)
     {

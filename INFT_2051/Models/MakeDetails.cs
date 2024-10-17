@@ -26,8 +26,11 @@ namespace INFT_2051.Models
         }
         public static async void LoadCarMakes()
         {
+            Console.WriteLine("Test output");
             string json = await ApiService.GetJsonFromAPI("make&limit=100");
+            Console.WriteLine(json);
             var response = JsonConvert.DeserializeObject<ApiMakeResponse>(json);
+            Console.WriteLine(response);
             if (response.Total_count <= 0)
             {
                 Console.WriteLine("No car makes found.");

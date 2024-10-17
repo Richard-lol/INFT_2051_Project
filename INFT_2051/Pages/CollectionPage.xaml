@@ -9,14 +9,26 @@
                FontSize="Large"
                HorizontalOptions="Center"
                Margin="10" />
+        <Button Text="Delete All Cars"
+                BackgroundColor="Red"
+                TextColor="White"
+                HorizontalOptions="Center"
+                Clicked="OnDeleteAllCarsClicked" />
 
         <!-- CollectionView to display the list of saved cars -->
         <CollectionView x:Name="CarsListView"
                         ItemsSource="{Binding Cars}">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
+               
                     <StackLayout Padding="10">
+                        <Image Source="{Binding ImageFilePath}" 
+                               WidthRequest="100" 
+                               HeightRequest="100" 
+                               Aspect="AspectFit" />
+                        
                         <Label Text="{Binding Make}" FontAttributes="Bold" />
+                        <Label Text="{Binding Name}" FontAttributes="Bold" />
                         <Label Text="{Binding Location}" />
                         <Label Text="{Binding AlbumName}" />
                     </StackLayout>

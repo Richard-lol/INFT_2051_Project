@@ -56,6 +56,11 @@ namespace INFT_2051.ViewModels
                 connection.Delete(model);
             }
         }
-        
+        public void DeleteAllCars()
+        {
+            // Delete all records from the "cars" table
+            connection.DeleteAll<CarModel>();
+        }
+
     }
 }

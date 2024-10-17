@@ -28,6 +28,16 @@ namespace INFT_2051.Pages
             // Bind the list to the CollectionView or ListView
             CarsListView.ItemsSource = cars;  // Assuming CarsListView is your list control
         }
+        private void OnDeleteAllCarsClicked(object sender, EventArgs e)
+        {
+            // Call the ViewModel method to delete all cars
+            viewModel.DeleteAllCars();
+
+            // Reload the collection view after deletion
+            LoadCars();
+        }
+
     }
+
 }
 
