@@ -7,27 +7,30 @@
     <VerticalStackLayout>
         <!-- First Dropdown: Make -->
         <Picker x:Name="MakePicker"
-                Title="Make"
-                ItemsSource="{Binding Makes}"
-                HorizontalOptions="Start"
-                WidthRequest="200"
-                Margin="20,5,0,5" />
+            Title="Make"
+            ItemsSource="{Binding Makes}"
+            SelectedItem="{Binding SelectedMake}"
+            HorizontalOptions="Start"
+            WidthRequest="200"
+            Margin="20,5,0,5" />
 
         <!-- Second Dropdown: Model -->
         <Picker x:Name="ModelPicker"
-                Title="Model"
-                ItemsSource="{Binding Models}"
-                HorizontalOptions="Start"
-                WidthRequest="200"
-                Margin="20,5,0,5" />
+            Title="Model"
+            ItemsSource="{Binding Names}"
+            SelectedItem="{Binding SelectedName}"
+            HorizontalOptions="Start"
+            WidthRequest="200"
+            Margin="20,5,0,5" />
 
         <!-- Third Dropdown: Album -->
         <Picker x:Name="AlbumPicker"
-                Title="Album"
-                ItemsSource="{Binding Albums}"
-                HorizontalOptions="Start"
-                WidthRequest="200"
-                Margin="20,5,0,5" />
+            Title="Album"
+            ItemsSource="{Binding Albums}"
+            SelectedItem="{Binding SelectedAlbum}"
+            HorizontalOptions="Start"
+            WidthRequest="200"
+            Margin="20,5,0,5" />
 
         <Button Text="Delete All Cars"
                 BackgroundColor="Red"
@@ -37,28 +40,22 @@
 
         <!-- CollectionView to display the list of saved cars -->
         <CollectionView x:Name="CarsListView"
-                        ItemsSource="{Binding Cars}">
+                    ItemsSource="{Binding FilteredCars}">
             <CollectionView.ItemsLayout>
                 <!-- Define a grid with 2 columns -->
                 <GridItemsLayout Orientation="Vertical" Span="3" />
             </CollectionView.ItemsLayout>
-            
+
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <FlexLayout Padding="10" Direction="Row">
-                        <ImageButton  Source="{Binding ImageFilePath}" 
-                               WidthRequest="120" 
-                               HeightRequest="120" 
-                               Aspect="AspectFit"
-                               Margin="5,0,5,5"
-                               Clicked="OnImageTapped"
-                               CommandParameter="{Binding ImageFilePath}" >
-                        </ImageButton>
-
-                        <!--<Label Text="{Binding Make}" FontAttributes="Bold" />
-                        <Label Text="{Binding Name}" FontAttributes="Bold" />
-                        <Label Text="{Binding Location}" />
-                        <Label Text="{Binding AlbumName}" />-->
+                        <ImageButton Source="{Binding ImageFilePath}" 
+                                 WidthRequest="120" 
+                                 HeightRequest="120" 
+                                 Aspect="AspectFit"
+                                 Margin="5,0,5,5"
+                                Clicked="OnImageTapped"
+                                CommandParameter="{Binding ImageFilePath}"/>
                     </FlexLayout>
                 </DataTemplate>
             </CollectionView.ItemTemplate>

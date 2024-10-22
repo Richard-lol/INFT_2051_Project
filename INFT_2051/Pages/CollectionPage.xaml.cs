@@ -14,11 +14,13 @@ namespace INFT_2051.Pages
 
             // Initialize the CarViewModel and set the BindingContext
             viewModel = new CarViewModel();
+            //BindingContext = CarViewModel.Current;
             BindingContext = viewModel;
 
             // Load the saved cars into the collection view or list
-            LoadCars();
+            //LoadCars();
         }
+
 
         private void LoadCars()
         {
@@ -34,7 +36,7 @@ namespace INFT_2051.Pages
             viewModel.DeleteAllCars();
 
             // Reload the collection view after deletion
-            LoadCars();
+            //LoadCars();
         }
         private void OnImageTapped(object sender, EventArgs e)
         {

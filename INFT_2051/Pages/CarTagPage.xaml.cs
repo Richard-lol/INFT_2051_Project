@@ -47,18 +47,20 @@ namespace INFT_2051.Pages
 
                 // Update the picker with the loaded names
                 CarModelPicker.ItemsSource = NameDetails.Names;
-                CarModelPicker.SelectedItem = null;
+                
             }
         }
 
 
-private void CollectionButton_Clicked(object sender, EventArgs e)
+
+    private void CollectionButton_Clicked(object sender, EventArgs e)
         {
             // Ensure data is bound from the UI correctly into carModel
             carModel.Make = CharacterClassPicker.SelectedItem?.ToString();
+            carModel.Name = CarModelPicker.SelectedItem?.ToString();
             carModel.Location = LocationEntry.Text;
             carModel.AlbumName = AlbumPicker.SelectedItem?.ToString();
-            carModel.Name = CarModelPicker.SelectedItem?.ToString();
+           
 
             // Save the car using the ViewModel
             viewModel.SaveCar(carModel);
