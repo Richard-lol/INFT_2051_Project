@@ -18,10 +18,6 @@ public partial class MainPage : ContentPage
         }
 
         MakeDetails.LoadCarMakes();
-        //NameDetails.LoadCarNames("");
-
-
-
     }
 
     private void CameraButton_Clicked(object sender, EventArgs e)

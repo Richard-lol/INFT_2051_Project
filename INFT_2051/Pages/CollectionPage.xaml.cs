@@ -36,6 +36,14 @@ namespace INFT_2051.Pages
             // Reload the collection view after deletion
             LoadCars();
         }
+        private void OnImageTapped(object sender, EventArgs e)
+        {
+            var imageButton = sender as ImageButton;
+            var carViewModel = imageButton?.CommandParameter as string;
+
+            // Navigate to the Fullscreen Image Page
+            Navigation.PushAsync(new photoFullScreenPage(carViewModel));
+        }
 
     }
 

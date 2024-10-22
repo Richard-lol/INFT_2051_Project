@@ -5,7 +5,7 @@ using SQLiteNetExtensions.Extensions;
 
 namespace INFT_2051.ViewModels
 {
-    internal class CarViewModel : ObservableObject
+    public class CarViewModel : ObservableObject
     {
         public static CarViewModel Current { get; set; }
 
@@ -26,6 +26,8 @@ namespace INFT_2051.ViewModels
 
 
         }
+
+       
 
         public void SaveCar(CarModel model)
         {
