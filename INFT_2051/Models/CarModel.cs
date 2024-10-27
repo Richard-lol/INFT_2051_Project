@@ -11,8 +11,6 @@ namespace INFT_2051.Models
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
 
-        //NamePage
-        //This is how getters and setters are specified in C#
         [MaxLength(260)]
         public string Name { get; set; }
         public string Make { get; set; }

@@ -7,9 +7,7 @@
         <ToolbarItem
             
         IconImageSource="meatballs.png"
-        Clicked="Settings_Clicked"
-
-        />
+        Clicked="Settings_Clicked"/>
 
     </ContentPage.ToolbarItems>
 

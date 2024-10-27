@@ -12,14 +12,16 @@
             </StackLayout>
         </ContentPage>
     </FlyoutPage.Flyout>
-
+    <!--Settings buttons -->
     <FlyoutPage.Detail>
         <NavigationPage>
             <x:Arguments>
                 <ContentPage Title="Settings">
                     <StackLayout>
-                        <Button Text="My Account" Clicked="OnSettingsClicked"/>
-                        <Button Text="Permissions" Clicked="OnProfileClicked"/>
+                        <Button Text="My Account" WidthRequest="250" HorizontalOptions="Center" Margin="0,20,0,20"/>
+                        <Button Text="Permissions" WidthRequest="250" HorizontalOptions="Center" Margin="0,0,0,20"/>
+                        <Button Text="About" WidthRequest="250" HorizontalOptions="Center" Margin="0,0,0,20"/>
+                        <Button Text="Help" WidthRequest="250" HorizontalOptions="Center" Margin="0,0,0,20"/>
                     </StackLayout>
                 </ContentPage>
             </x:Arguments>

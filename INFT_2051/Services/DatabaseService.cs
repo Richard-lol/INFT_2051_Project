@@ -31,6 +31,7 @@ namespace INFT_2051.Services
                 {
                     _connection = new SQLiteConnection(DatabaseFile);
                     _connection.CreateTable<CarModel>();
+                  
 
                 }
                 return _connection;

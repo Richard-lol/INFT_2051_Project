@@ -3,13 +3,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="INFT_2051.MainPage"
              Title="Homepage">
-
+    <!--Settings -->
     <ContentPage.ToolbarItems>
         <ToolbarItem
-            
         IconImageSource="meatballs.png"
         Clicked="Settings_Clicked"
-
         />
         
     </ContentPage.ToolbarItems>
@@ -25,11 +23,15 @@
             Text="Hello User!"
             FontSize="Medium"
             />
-
-            <Image
-                Source="bmw.png"
-                WidthRequest="300"/>
-
+            <!--Image -->
+            <ImageButton
+               x:Name="UploadImageButton"
+               Source="coolcarz.png"  
+               WidthRequest="300"
+               HeightRequest="300"
+               Aspect="AspectFit"
+               Clicked="wallpaperButtonClicked"/>
+            <!--Nav Buttons -->
             <Button
                 x:Name="CameraButton"
                 Text="Take a Photo"

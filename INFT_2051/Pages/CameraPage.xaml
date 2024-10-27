@@ -2,15 +2,14 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="INFT_2051.Pages.CameraPage"
-             Title="CameraPage">
+             Title="Take a Photo">
 
+    <!-- Next button -->
     <ContentPage.ToolbarItems>
         <ToolbarItem
             
         Text="Next"
-        Clicked="CarTagPage_Clicked"
-
-        />
+        Clicked="CarTagPage_Clicked"/>
 
     </ContentPage.ToolbarItems>
     
@@ -18,19 +17,20 @@
         <VerticalStackLayout
             Margin="20"
             Spacing="20">
-
-            <Image x:Name="PhotoCapture"
+            
+            <!-- Photo preview -->
+            <Image x:Name="PhotoPreview"
                    WidthRequest="350"
                    HeightRequest="200"
                    BackgroundColor="LightGray"
                    Aspect="AspectFit"
                    HorizontalOptions="Center"/>
 
-
+            <!-- Button for camera photo upload -->
             <Button Text="Take a Photo"
                     Clicked="PhotoButtonClicked"
                     HorizontalOptions="Center"/>
-            
+            <!-- Button for local storage photo upload -->
             <Button Text="Upload a Photo"
                     Clicked="UploadButtonClicked"
                     HorizontalOptions="Center"/>

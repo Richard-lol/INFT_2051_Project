@@ -29,15 +29,9 @@ namespace INFT_2051.Models
         {
             
             string json = await ApiService.GetJsonFromAPI("model&where=make%3A\"" + selectedModel + "\"&limit=100");
-            System.Diagnostics.Debug.WriteLine(json);
+ 
             var response = JsonConvert.DeserializeObject<ApiNameResponse>(json);
 
-            System.Diagnostics.Debug.WriteLine(response);
-            if (response.Total_count <= 0)
-            {
-                Console.WriteLine("No car models found.");
-                return;
-            }
             string[] carNames = new string[100];
             for (int i = 0; i < 100; i++)
             {

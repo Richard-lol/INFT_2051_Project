@@ -3,8 +3,7 @@ using INFT_2051.Services;
 using SQLite;
 using SQLiteNetExtensions.Extensions;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Linq;
+
 
 namespace INFT_2051.ViewModels
 {
@@ -25,15 +24,17 @@ namespace INFT_2051.ViewModels
             Names.Insert(0, "All");
             Albums = Cars.Select(car => car.AlbumName).Distinct().ToList();
             Albums.Insert(0, "All");
+            Locations = Cars.Select(car => car.Location).Distinct().ToList();
+            Locations.Insert(0, "All");
 
             SelectedMake = "All";
             SelectedName = "All";
             SelectedAlbum = "All";
+            SelectedLocation = "All";
 
             FilteredCars = new ObservableCollection<CarModel>(Cars);
 
         }
-
 
         public List<CarModel> Cars
         {
@@ -42,9 +43,8 @@ namespace INFT_2051.ViewModels
                 return connection.GetAllWithChildren<CarModel>();
             }
 
-
         }
-        //public List<CarModel> Cars => connection.GetAllWithChildren<CarModel>();
+    
 
         private ObservableCollection<CarModel> filteredCars;
         public ObservableCollection<CarModel> FilteredCars
@@ -57,13 +57,14 @@ namespace INFT_2051.ViewModels
             }
         }
 
-        // Dropdown options
+   
         public List<string> Makes { get; private set; }
         public List<string> Names { get; private set; }
         public List<string> Albums { get; private set; }
+        public List<string> Locations { get; private set; }
 
 
-        // Selected filter properties
+  
         private string selectedMake;
         public string SelectedMake
         {
@@ -100,8 +101,20 @@ namespace INFT_2051.ViewModels
             }
         }
 
-        // Apply filtering logic based on selected filters
-        private void ApplyFilters()
+        private string selectedLocation;
+        public string SelectedLocation
+        {
+            get => selectedLocation;
+            set
+            {
+                selectedLocation = value;
+                OnPropertyChanged(nameof(SelectedLocation));
+                ApplyFilters();
+            }
+        }
+
+        //Apply filtering logic based on filter dropdowns
+        public void ApplyFilters()
         {
             var filtered = Cars.AsEnumerable();
 
@@ -118,6 +131,11 @@ namespace INFT_2051.ViewModels
             if (!string.IsNullOrEmpty(SelectedAlbum) && SelectedAlbum != "All")
             {
                 filtered = filtered.Where(car => car.AlbumName == SelectedAlbum);
+            }
+
+            if (!string.IsNullOrEmpty(SelectedLocation) && SelectedLocation != "All")
+            {
+                filtered = filtered.Where(car => car.Location == SelectedLocation);
             }
 
             FilteredCars = new ObservableCollection<CarModel>(filtered.ToList());
@@ -152,11 +170,6 @@ namespace INFT_2051.ViewModels
             {
                 connection.Delete(model);
             }
-        }
-        public void DeleteAllCars()
-        {
-            // Delete all records from the "cars" table
-            connection.DeleteAll<CarModel>();
         }
 
     }

@@ -6,13 +6,4 @@ public partial class SettingsFlyoutPage : FlyoutPage
         InitializeComponent();
     }
 
-    private async void OnSettingsClicked(object sender, EventArgs e)
-    {
-
-    }
-
-    private async void OnProfileClicked(object sender, EventArgs e)
-    {
-
-    }
 }

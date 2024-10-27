@@ -10,8 +10,8 @@
             AlignItems="Center">
 
             <Image
-                Source="dragon.png"
-                WidthRequest="200"/>
+                Source="coolcarz.png"
+                WidthRequest="400"/>
 
             <Label
                 Text="Login"

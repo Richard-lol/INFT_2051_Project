@@ -4,8 +4,16 @@
              x:Class="INFT_2051.Pages.CollectionPage"
              Title="Car Collection">
 
+    <ContentPage.ToolbarItems>
+        <ToolbarItem
+            
+        IconImageSource="home.png"
+        Clicked="Home_Clicked"/>
+
+    </ContentPage.ToolbarItems>
+
     <VerticalStackLayout>
-        <!-- First Dropdown: Make -->
+        <!-- Make Dropdown -->
         <Picker x:Name="MakePicker"
             Title="Make"
             ItemsSource="{Binding Makes}"
@@ -14,7 +22,7 @@
             WidthRequest="200"
             Margin="20,5,0,5" />
 
-        <!-- Second Dropdown: Model -->
+        <!-- Model/Name dropdown -->
         <Picker x:Name="ModelPicker"
             Title="Model"
             ItemsSource="{Binding Names}"
@@ -23,7 +31,7 @@
             WidthRequest="200"
             Margin="20,5,0,5" />
 
-        <!-- Third Dropdown: Album -->
+        <!-- Album dropdown -->
         <Picker x:Name="AlbumPicker"
             Title="Album"
             ItemsSource="{Binding Albums}"
@@ -31,21 +39,23 @@
             HorizontalOptions="Start"
             WidthRequest="200"
             Margin="20,5,0,5" />
+        <!-- Location dropdown -->
+        <Picker x:Name="LocationPicker"
+            Title="Location"
+            ItemsSource="{Binding Locations}"
+            SelectedItem="{Binding SelectedLocation}"
+            HorizontalOptions="Start"
+            WidthRequest="200"
+            Margin="20,5,0,5" />
 
-        <Button Text="Delete All Cars"
-                BackgroundColor="Red"
-                TextColor="White"
-                HorizontalOptions="Center"
-                Clicked="OnDeleteAllCarsClicked" />
-
-        <!-- CollectionView to display the list of saved cars -->
+        <!-- CollectionView to display the saved cars -->
         <CollectionView x:Name="CarsListView"
                     ItemsSource="{Binding FilteredCars}">
             <CollectionView.ItemsLayout>
-                <!-- Define a grid with 2 columns -->
+                <!-- Define a grid with 3 columns -->
                 <GridItemsLayout Orientation="Vertical" Span="3" />
             </CollectionView.ItemsLayout>
-
+            <!-- Show Car image -->
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <FlexLayout Padding="10" Direction="Row">
@@ -55,7 +65,7 @@
                                  Aspect="AspectFit"
                                  Margin="5,0,5,5"
                                 Clicked="OnImageTapped"
-                                CommandParameter="{Binding ImageFilePath}"/>
+                                CommandParameter="{Binding .}"/>
                     </FlexLayout>
                 </DataTemplate>
             </CollectionView.ItemTemplate>

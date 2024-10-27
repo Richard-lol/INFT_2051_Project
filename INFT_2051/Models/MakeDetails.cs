@@ -6,8 +6,6 @@ namespace INFT_2051.Models
 {
     public static class MakeDetails
     {
-
-
         public static string[] _makes;
 
         public static string[] Makes
@@ -26,16 +24,10 @@ namespace INFT_2051.Models
         }
         public static async void LoadCarMakes()
         {
-            Console.WriteLine("Test output");
+       ;
             string json = await ApiService.GetJsonFromAPI("make&limit=100");
-            Console.WriteLine(json);
+     
             var response = JsonConvert.DeserializeObject<ApiMakeResponse>(json);
-            Console.WriteLine(response);
-            if (response.Total_count <= 0)
-            {
-                Console.WriteLine("No car makes found.");
-                return;
-            }
             string[] makeNames = new string[100];
             for (int i = 0; i < 100; i++)
             {

@@ -12,60 +12,43 @@ namespace INFT_2051.Pages
         {
             InitializeComponent();
 
-            // Initialize the CarViewModel
             viewModel = new CarViewModel();
-
-            // Initialize a new CarModel object
-            //carModel = new CarModel();
+      
             carModel = model;
-
-            // Set the BindingContext of the page to the CarModel
             this.BindingContext = carModel;
         }
-        //private void CarMakeChosen(object sender, EventArgs e)
-        //{
-        //    var picker = (Picker)sender;
-        //    System.Diagnostics.Debug.WriteLine(picker.SelectedItem);
-
-        //    if (picker.SelectedItem != null)
-        //    {
-        //        var selectedModel = picker.SelectedItem?.ToString();
-        //        System.Diagnostics.Debug.WriteLine(selectedModel);
-        //        NameDetails.LoadCarNames(selectedModel);
-        //    }
-        //}
-
+        
+        //Load "Model" dropdown based on "Make" drop down choice
         private async void CarMakeChosen(object sender, EventArgs e)
         {
             var selectedMake = CharacterClassPicker.SelectedItem?.ToString();
             if (selectedMake!=null)
             {
+                
                 System.Diagnostics.Debug.WriteLine("Make selected: " + selectedMake);
 
-                // Load car names asynchronously
+                //Parse selected car make and load car models (names) from API
                 await NameDetails.LoadCarNames(selectedMake);
 
-                // Update the picker with the loaded names
+                //Update the dropdown with the loaded models (names)
                 CarModelPicker.ItemsSource = NameDetails.Names;
                 
             }
         }
 
-
-
     private void CollectionButton_Clicked(object sender, EventArgs e)
         {
-            // Ensure data is bound from the UI correctly into carModel
+            //Bind data to car model
             carModel.Make = CharacterClassPicker.SelectedItem?.ToString();
             carModel.Name = CarModelPicker.SelectedItem?.ToString();
             carModel.Location = LocationEntry.Text;
             carModel.AlbumName = AlbumPicker.SelectedItem?.ToString();
-           
 
-            // Save the car using the ViewModel
+
+            //Save the car using the ViewModel
             viewModel.SaveCar(carModel);
 
-            // Navigate to the collection page after saving
+            //Navigate to collection page 
             Navigation.PushAsync(new CollectionPage());
         }
     }

@@ -5,6 +5,7 @@
              x:Class="INFT_2051.Pages.CarTagPage"
              Title="Tag Your Photo">
     <VerticalStackLayout>
+        <!-- Make -->
         <Label
             Grid.Column="1"
             Grid.Row="1"
@@ -21,6 +22,7 @@
             SelectedIndexChanged="CarMakeChosen"
             Margin="20,10,20,10"/>
 
+        <!-- Model -->
         <Label
             Grid.Column="1"
             Grid.Row="1"
@@ -37,27 +39,41 @@
           
             Margin="20,10,20,10"/>
 
-
+        <!--Location -->
         <Label
-         Grid.Column="1"
-         Grid.Row="1"
-         VerticalOptions="Center"
-         Text="Location:"
-         FontAttributes="Bold"
-         Margin="20,10,20,0"/>
+             Grid.Column="1"
+             Grid.Row="1"
+             VerticalOptions="Center"
+             Text="Location:"
+             FontAttributes="Bold"
+             Margin="20,10,20,0"/>
 
         <Entry x:Name="LocationEntry" 
                Placeholder="Enter location"
                Text="{Binding Location}"
                HorizontalOptions="FillAndExpand" 
                Margin="20,10,20,10"/>
+        
+        <!-- Album -->
+        <Label
+            Grid.Column="1"
+            Grid.Row="1"
+            VerticalOptions="Center"
+            Text="Album:"
+            FontAttributes="Bold"
+            Margin="20,10,20,0"/>
 
-
-        <Picker x:Name="AlbumPicker" Title="Select Album" SelectedItem="{Binding Album}" Margin="20,10,20,10">
+        <Picker x:Name="AlbumPicker" SelectedItem="{Binding AlbumName}" Margin="20,10,20,10">
             <Picker.ItemsSource>
                 <x:Array Type="{x:Type x:String}">
                     <x:String>Exotics</x:String>
                     <x:String>Classics</x:String>
+                    <x:String>Sports Cars</x:String>
+                    <x:String>Electric</x:String>
+                    <x:String>SUV</x:String>
+                    <x:String>Off-Roader</x:String>
+                    <x:String>JDM</x:String>
+                    <x:String>Luxury</x:String>
                 </x:Array>
             </Picker.ItemsSource>
         </Picker>
